@@ -1,0 +1,23 @@
+老師建議:
+course
+course_id
+title
+credits
+attributes
+
+
+section
+section_id(可有可無,如果一學期開不只一堂就要有)
+year
+semester
+(要加入course_id當pk)
+
+course 只跟 section有關
+
+section和instructor有teach關西
+
+
+
+算分數之方法:
+1.每次sql查詢,找出老師對應課程算平均(每查詢都要算)
+2.用trigger(系統負擔重)

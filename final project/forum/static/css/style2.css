@@ -1,0 +1,66 @@
+body{
+    margin: 0;
+    padding: 0px;
+    font-family:sans-serif;
+
+}
+*{
+    box-sizing: border-box;
+}
+
+form.form-example {
+
+    display: table;
+    
+}
+
+div.form-example {
+    display: table-row;
+    margin-left:50px;
+}
+
+label, input {
+    display: table-cell;
+    margin-bottom: 10px;
+    margin-left: 10px;
+}
+
+label {
+    font-family: "Fira Sans", sans-serif;
+
+
+}
+
+
+.coursesearching{
+    top:10%;
+
+}
+.tb-rl{
+    margin-top:  -120px;
+    margin-left: 50%;
+}
+
+.table{
+    width: 70%;
+    border-collapse: collapse;
+    margin-left: 250px;
+
+
+}
+.table.table{
+    width: 70%;
+    height: 300px;
+    margin-left: 250px;
+    margin-top: -300px;
+}
+.table td,.table th{
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    text-align: center;
+    font: size 16px;
+}
+
+.table tbody tr:nth-child(even){
+    background-color: #353434;
+}

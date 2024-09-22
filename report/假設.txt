@@ -1,0 +1,5 @@
+DB假設:
+1.全部課程視為同學期
+2.假設course與instructor為多對一
+
+

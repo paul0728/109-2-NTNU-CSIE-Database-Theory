@@ -1,0 +1,148 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<title>師大資工選課評價系統</title>
+<meta charset="UTF-8">
+<link href=""{% static 'css/style2.css' %}" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="{% static 'css/global.css' %}">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+<script defer src="https://use.fontawesome.com/releases/v5.15.3/css/all.css"></script>
+
+
+
+<style>
+.w3-sidebar a {font-family: "Roboto", sans-serif}
+body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
+</style>
+<body class="w3-content" style="max-width:1200px">
+
+
+
+  
+
+<div class="row vertical-align header">
+    <div class="col-12 offset-3">
+        <a href ="{% url 'search' %}"><i class="fas fa-comments fa-3x home-btn"></i></a>
+    </div>
+     {% if user.is_authenticated %}
+        <div class="col-1 offset-9 text-right align-self-center">
+            <a href="{% url 'logout' %}"><h3>log out</h3></a>
+        </div>
+
+     {% else %}
+        <div class="col-1 offset-9 text-right align-self-center">
+            <a href="{% url 'login' %}"><h3>log in</h3></a>
+        </div>
+        <div class="col-1 text-right align-self-center">
+            <a href="{% url 'registration' %}"><h3>register</h3></a>
+        </div>
+     {% endif %}
+
+</div>
+<div class="container-fluid">
+  <block content/><endblock></endblock>
+</div>
+
+
+<!-- Sidebar/menu -->
+<nav class="w3-sidebar w3-bar-block w3-white w3-collapse w3-top" style="z-index:3;width:250px" id="mySidebar">
+  <div class="w3-container w3-display-container w3-padding-16">
+    <i onclick="w3_close()" class="fa fa-remove w3-hide-large w3-button w3-display-topright"></i>
+    <h3 class="w3-wide"><b>課程分類</b></h3>
+  </div>
+  <div class="w3-padding-64 w3-large w3-text-grey" style="font-weight:bold">
+    <a onclick="myAccFunc()" href="javascript:void(0)" class="w3-button w3-block w3-white w3-left-align" id="myBtn">
+      必修 <i class="fa fa-caret-down"></i>
+    </a>
+    <div id="demoAcc" class="w3-bar-block w3-hide w3-padding-large w3-medium">
+      <a href="#" class="w3-bar-item w3-button">程式設計(一)</a>
+      <a href="#" class="w3-bar-item w3-button">程式設計(二)</a>
+      <a href="#" class="w3-bar-item w3-button">資料結構</a>
+      <a href="#" class="w3-bar-item w3-button">機率論</a>
+    </div>
+
+    <a onclick="myAccFunc1()" href="javascript:void(0)" class="w3-button w3-block w3-white w3-left-align" id="myBtn1">
+      選修 <i class="fa fa-caret-down"></i>
+    </a>
+    <div id="demoAcc1" class="w3-bar-block w3-hide w3-padding-large w3-medium">
+      <a href="#" class="w3-bar-item w3-button">區域性網路</a>
+      <a href="#" class="w3-bar-item w3-button">資料探勘</a>
+      <a href="#" class="w3-bar-item w3-button">電腦輔助VLSI設計</a>
+      <a href="#" class="w3-bar-item w3-button">資訊安全</a>
+      <a href="#" class="w3-bar-item w3-button">基礎電子學實驗</a>
+      <a href="#" class="w3-bar-item w3-button">軟體工程</a>
+    </div>
+</nav>
+
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script>
+// Accordion 
+function myAccFunc() {
+  var x = document.getElementById("demoAcc");
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else {
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
+
+
+function myAccFunc1() {
+  var x = document.getElementById("demoAcc1");
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else {
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
+
+// Click on the "Jeans" link on page load to open the accordion for demo purposes
+document.getElementById("myBtn").click();
+document.getElementById("myBtn1").click();
+
+</script>
+
+
+
+<footer>
+        <script src="{% static 'js/theme.js' %}"></script>
+
+        <script>
+            function loadThemeCSS(theme){
+                var fileref = document.createElement("link");
+                fileref.rel = "stylesheet";
+                fileref.type = "text/css";
+
+                if(theme == "dark"){
+                    fileref.href = "{% static 'css/dark-theme.css' %}";
+                }else{
+                    fileref.href = "{% static 'css/light-theme.css' %}";
+                }
+
+                document.getElementsByTagName("head")[0].appendChild(fileref);
+            }
+        </script>
+        
+        <div id="theme-wrapper">
+            <p>Dark Mode</p>
+            <input class="switch" type="checkbox" id="darkSwitch" />
+            <label class="switch" for="switch" onclick="onThemeChange();">Toggle</label>
+        </div>
+
+ </footer>
+
+
+
+</body>
+</html>

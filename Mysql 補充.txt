@@ -1,0 +1,16 @@
+Mysql 補充:
+https://www.mysqltutorial.org/php-querying-data-from-mysql-table/
+https://www.youtube.com/watch?v=NvrpuBAMddw
+https://www.mysqltutorial.org/mysql-check-constraint/
+https://www.mysqltutorial.org/getting-started-mysql-python-connector/
+https://www.mysqltutorial.org/mysql-stored-function/
+
+
+HeidiSQL Link server_20210604:
+https://www.youtube.com/watch?v=e0SKx6oueMM
+db密碼:4EG4TA
+
+ERdiagram問題:
+1.user跟section為何是1-1關係?
+2.week entity set 一定是一對多關係嗎?3.source完會卡住(重開可以解決)?
+
