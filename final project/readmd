@@ -1,0 +1,11 @@
+1.在anaconda 中創建虛擬環境並且下載python
+conda create --name DB python
+
+2.安裝所需套件(在requirements.txt所在目錄)
+pip install -r requirements.txt
+
+3.python manage.py makemigrations
+
+4.python manage.py migrate
+
+5.python manage.py runserver

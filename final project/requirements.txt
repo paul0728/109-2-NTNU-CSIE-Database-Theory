@@ -1,0 +1,13 @@
+python 
+Django
+django-crispy-forms
+django-filter
+PyMySQL
+mysqlclient
+
+
+
+
+
+
+

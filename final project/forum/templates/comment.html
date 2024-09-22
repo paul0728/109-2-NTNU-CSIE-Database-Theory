@@ -1,0 +1,27 @@
+{% extends "forum/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <form  name='my form' method='POST'>
+         {% csrf_token %}
+        <label for="user">使用者</label>
+        <input type="text" id="user" name='user'>
+        <label for="comment">留言</label>
+        <input type="text" id="comment" name='comment'>
+        <label for="rate">評分(1-5)</label>
+        <input type="number" id="rate" name="rate" min="1" max="5">
+        <input type='submit' value='送出'>
+        <input type='reset' value='清除重填'>
+    </form>
+    <h1>留言板</h1><br/>
+    <div class="row">
+    {% for r in reviews %}
+        <li class="col-sm-12 col-md-4">
+            {{r.username}}
+            {{r.comment|linebreaks}}
+            {{r.rate|linebreaks}}
+            <i><small>{{r.time}}</small></i>
+        </li>
+    {% endfor %}
+    </div>
+
+{% endblock content %}
